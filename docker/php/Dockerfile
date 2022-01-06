@@ -9,6 +9,10 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
     chmod +x /usr/local/bin/composer && \
     chown www-data:www-data /usr/local/bin/composer
 
+# xdebug
+RUN pecl install xdebug && \
+    docker-php-ext-enable xdebug
+
 # Setup environment
 ENV DEV=1
 RUN mkdir -p /application
