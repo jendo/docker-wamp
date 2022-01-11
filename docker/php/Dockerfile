@@ -12,8 +12,9 @@ RUN \
 
 RUN \
  apt-get update && \
- apt-get install -y vim git curl zip unzip
+ apt-get install -y vim git curl zip unzip \
 
+# composer
 RUN curl -Ls "https://getcomposer.org/download/${COMPOSER_VERSION}/composer.phar" > /usr/local/bin/composer && \
     test "$(sha256sum /usr/local/bin/composer | cut -d ' ' -f 1)" = "${COMPOSER_SHA256}" && \
     chmod +x /usr/local/bin/composer && \
